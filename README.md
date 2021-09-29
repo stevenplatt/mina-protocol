@@ -1,4 +1,4 @@
-# mina-protocol
+# Deploying Mina
 Documentation for deploying a Mina blockchain node with logging within Docker. To be user-friendly, these instructions can be executed all on a single compute instance. All files are written with limit dependancies so that they can be adapted for users deploying a node within a lab, Kubernetes, or any cloud provider. 
 
 The Mina Metrics Server at the end of these instructions is written in Python with 2.X compatibility, so that it does not require additional installations and can easily be bundled as part of the Mina node itself if desired. 
