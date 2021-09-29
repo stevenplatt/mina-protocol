@@ -18,7 +18,9 @@ daemon \
 --file-log-level Debug \
 --log-level Info \
 --peer-list-url https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt \
+```
 
+```bash
 # launch docker instance with logging exposed
 sudo docker run --name mina -d \
 -p 8302:8302 -p 8303:8303 \
