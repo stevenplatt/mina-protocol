@@ -101,7 +101,7 @@ daemon \
 
 Metrics output from the Mina node can be displayed in the browser using the ```mina_metrics.py``` script. This script launches a Python flask server and present a basic parsing of the Mina Prometheus logs in human readable format. The script must be run with an additional argument to specify the Mina Prometheus port that was defined with the Docker command above, for example ```python mina_metrics.py http://127.0.0.1:8303/metrics```. This script can be run on the same compute instance that runs the Mina docker container, or from another location. 
 
-Note: For simplicity the server uses a module that is not part of the Python standard library (```prometheus_client```). This functionality can also be directly implemented in the future if desired to limit dependancy risk. 
+Note: For simplicity the server uses a module that is not part of the Python standard library (```prometheus_client```). This functionality can also be directly implemented in the future if desired to limit dependancy risk. Additionally, Flask does not natively support automatic refreshing (at 1-minute interval), but this item can also be added using Javascript on the html page itself. It is omitted currently to avoid delaying the publication of this repository.
 
 ```python
 > python mina-protocol/mina_metrics.py [URL_TARGET]
