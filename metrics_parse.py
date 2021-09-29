@@ -4,6 +4,24 @@ import requests
 
 metrics = requests.get("http://localhost:8303/metrics").content
 
+print(
+'''
+========================================================
+            
+           
+                    MINA METRICS     
+            
+            
+========================================================
+'''
+    )
+
 for family in text_string_to_metric_families(metrics):
   for sample in family.samples:
-    print("Name: {0} Labels: {1} Value: {2}".format(*sample))
+    # histogram items are pruned in this example, but can be processed with additional text formatting
+    if len("{1}".format(*sample)) > 2:
+      pass
+    else:
+      print ("")
+      print("{0}: {2}".format(*sample))
+      
