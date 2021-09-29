@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+  
+<html>
+<head>
+    <title>Mina Metrics Dashboard</title>
+</head>
+<body>
+  
+<h1>Minna Metrics Server</h1>
+
+    <ol>
+        <!-- For loop logic of jinja template -->
+        {%for item in dashboard%}
+            <li>{{item}}</li>
+        {%endfor%}
+    </ol>
+  
+</body>
+</html>
