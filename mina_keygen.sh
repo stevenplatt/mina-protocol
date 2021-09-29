@@ -15,6 +15,7 @@ chmod 700 ~/keys
 mina-generate-keypair -privkey-path ~/keys/my-wallet
 
 chmod 600 ~/keys/my-wallet
+mkdir ~/.mina-config
 
 #print final confirmation
 echo "Private/Public key pair generated sucessfully"
