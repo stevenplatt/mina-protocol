@@ -1,4 +1,4 @@
-# prerequisites can be installed with "pip install flask prometheus_client requests"
+# prerequisites can be installed with "pip install flask prometheus_client requests argparse"
 
 # this script assumes that the Mina node is using network ports defined in mina_deploy.sh
 # the ip address of the mina node must be passed as an argument when running the sript
@@ -11,8 +11,6 @@ from flask import render_template
 from prometheus_client.parser import text_string_to_metric_families
 import requests
 import argparse
-import os
-import sys
 
 app = Flask(__name__)
 
