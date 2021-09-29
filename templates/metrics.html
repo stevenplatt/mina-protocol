@@ -6,12 +6,12 @@
 </head>
 <body>
   
-<h1>Minna Metrics Server</h1>
+<h1>Mina Metrics Dashboard</h1>
 
     <ol>
         <!-- For loop logic of jinja template -->
         {%for item in dashboard%}
-            <li>{{item}}</li>
+            <li>{{item}}: {{dashboard[item]}}</li>
         {%endfor%}
     </ol>
   

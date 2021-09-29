@@ -21,8 +21,7 @@ def metrics():
             if len("{1}".format(*sample)) > 2:
                 pass
             else:
-                dashboard["{0}".format(*sample)] = "{2}".format(*sample)
-                # dashboard.append("{0}: {2}".format(*sample))
+                dashboard["{0}".format(*sample).replace('Coda_', '')] = "{2}".format(*sample)
     return render_template('metrics.html', dashboard=dashboard)
 
 if __name__ == '__main__':
