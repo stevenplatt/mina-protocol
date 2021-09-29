@@ -15,4 +15,4 @@ chmod 700 ~/keys
 mina-generate-keypair -privkey-path ~/keys/my-wallet
 
 #print final confirmation
-echo "Public/Private key pair generated sucessfully"
+echo "Private/Public key pair generated sucessfully"
