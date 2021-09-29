@@ -1,12 +1,18 @@
 # mina-protocol
-Documentation for deploying a Mina blockchain node with logging within Docker.
+Documentation for deploying a Mina blockchain node with logging within Docker. To be user-friendly, these instructions can be executed all on a single compute instance. All files are written with limit dependancies so that they can be adapted for users deploying a node within a lab, Kubernetes, or any cloud provider. 
+
+The Mina Metrics Server at the end of these instructions is written in Python with 2.X compatibility, so that it does not require additional installations and can easily be bundled as part of the Mina node itself if desired. 
+
+The Metrics Dashboard currently has minimal parsing applied (only enough to make logs easily readable, but could be updated with further processing if desired. 
 
 ## Table of Contents
-[Prerequisites](#pre-req)
+[Prerequisites (Task 1)](#pre-req)
 
-[Launch Mina Docker Node](#no-logging)  
+[Launch Mina Docker Node (Task 1)](#no-logging)  
 
-[Launch Mina Docker Node With Active Logging](#logging)
+[Launch Mina Docker Node With Active Logging (Task 2)](#logging)
+
+[Viewing Mina Metrics (Task 2)](#metrics)
 
 <a name="pre-req"/>
 
@@ -29,7 +35,14 @@ Mina requires a Private/Public key-pair to interact on the network. The ```mina_
 > bash mina-protocol/mina_keygen.sh
 ```
 
+### Install Python modules for the Mina Metrics Server
 
+Because the metrics webpage is deployed with Python Flask, additional dependancies must be installed. 
+
+```
+> sudo apt install -y python python-pip
+> pip install flask prometheus_client requests argparse
+```
 
 <a name="no-logging"/>
 
@@ -82,12 +95,14 @@ daemon \
 --metrics-port 8303
 ```
 
+<a name="metrics"/>
+
 # Display Mina Metrics over HTTP
 
-Metrics output from the Mina node can be displayed in the browser using the ```mina_metrics.py``` script. This script launches a Python flask server and present a basic parsing of the Mina Prometheus logs in human readable format. The script must be run with an additional argument to specify the Mina Prometheus port that was defined with the Docker command above. This script can be run on the same compute instance that runs the Mina docker container, or from another location. 
+Metrics output from the Mina node can be displayed in the browser using the ```mina_metrics.py``` script. This script launches a Python flask server and present a basic parsing of the Mina Prometheus logs in human readable format. The script must be run with an additional argument to specify the Mina Prometheus port that was defined with the Docker command above, for example ```python mina_metrics.py http://127.0.0.1:8303/metrics```. This script can be run on the same compute instance that runs the Mina docker container, or from another location. 
 
 ```python
-> python mina-protocol/mina_metrics.py
+> python mina-protocol/mina_metrics.py [URL_TARGET]
 ```
 
 The log dashboard can be reach at ```http://[IP]:8304``` and will display as shown below: 
