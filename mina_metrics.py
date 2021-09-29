@@ -13,7 +13,7 @@ app = Flask(__name__)
 def metrics():
     
     metrics = requests.get("http://localhost:8303/metrics").content
-    dashboard = []
+    dashboard = {}
 
     for family in text_string_to_metric_families(metrics):
         for sample in family.samples:
@@ -21,7 +21,8 @@ def metrics():
             if len("{1}".format(*sample)) > 2:
                 pass
             else:
-                dashboard.append("{0}: {2}".format(*sample))
+                dashboard["{0}".format(*sample)] = "{2}".format(*sample)
+                # dashboard.append("{0}: {2}".format(*sample))
     return render_template('metrics.html', dashboard=dashboard)
 
 if __name__ == '__main__':
