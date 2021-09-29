@@ -10,7 +10,7 @@ sudo apt-get remove docker docker-engine docker.io containerd runc > docker_inst
 
 echo "Checking for and installing Docker dependancies..."
 sudo apt-get update > /dev/null
-sudo apt-get install \
+sudo apt-get -y install \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -26,6 +26,6 @@ echo \
 
 # install Docker and related tools
 sudo apt-get update > /dev/null
-sudo apt-get install docker-ce docker-ce-cli containerd.io >> docker_install.log
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io >> docker_install.log
 
 echo "Docker installation complete"

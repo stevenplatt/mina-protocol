@@ -1,13 +1,8 @@
 #!/bin/sh
 # this file is used to deploy a mina node on a server running Docker
 
-# check that docker is installed
-if ![ -x "$(command -v docker)" ]; then
-    echo "Error: Docker is not currently installed"
-    else
-        echo "Deploying Mina node within Docker..."
-fi
 
+# check for deployment argument launch corresponding docker container
 # deploy the mina docker image
 if [ "$1" == "logging" ]; then
     # launch docker instance with logging exposed
