@@ -2,9 +2,8 @@
 Documentation for deploying a Mina blockchain node with logging within Docker.
 
 
-
-```bash
 # launch docker instance without logging exposed
+```bash
 sudo docker run --name mina -d \
 -p 8302:8302 \
 --restart=always \
@@ -20,8 +19,8 @@ daemon \
 --peer-list-url https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt \
 ```
 
-```bash
 # launch docker instance with logging exposed
+```bash
 sudo docker run --name mina -d \
 -p 8302:8302 -p 8303:8303 \
 --restart=always \
