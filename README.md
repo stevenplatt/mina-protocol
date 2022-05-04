@@ -52,7 +52,7 @@ With prerequisites installed a new mina node can be launched using the Docker co
 
 
 ```bash
-docker run --name mina -d \
+sudo docker run --name mina -d \
 -p 8302:8302 \
 -p 3085:3085 \
 --restart=always \
