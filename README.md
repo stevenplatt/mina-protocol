@@ -54,11 +54,12 @@ With prerequisites installed a new mina node can be launched using the Docker co
 ```bash
 sudo docker run --name mina -d \
 -p 8302:8302 \
+-p 3085:3085 \
 --restart=always \
 --mount "type=bind,source=`pwd`/keys,dst=/keys,readonly" \
 --mount "type=bind,source=`pwd`/.mina-config,dst=/root/.mina-config" \
--e CODA_PRIVKEY_PASS="[YOUR_PRIVATE_KEY]" \
-gcr.io/o1labs-192920/mina-daemon-baked:1.1.8-b10c0e3-mainnet \
+-e MINA_PRIVKEY_PASS="[YOUR_PRIVATE_KEY]" \
+gcr.io/o1labs-192920/mina-daemon:latest \
 daemon \
 --block-producer-key /keys/my-wallet \
 --insecure-rest-server \
